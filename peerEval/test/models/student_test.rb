@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StudentTest < ActiveSupport::TestCase
   def setup
-    @student = Student.new(name: 'Example Student', email: 'student@example.com')
+    @student = Student.new(name: 'Example Student', email: 'student@example.com', password: "foobar12", password_confirmation: "foobar12")
   end
 
   test 'should be valid' do
@@ -40,8 +40,17 @@ class StudentTest < ActiveSupport::TestCase
 
   test 'email addresses should be unique' do
     duplicate_student = @student.dup
-    duplicate_student.email = @student.email.upcase
     @student.save
     assert_not duplicate_student.valid?
+  end
+
+  test "password should be present (nonblank)" do
+    @student.password = @student.password_confirmation = " " * 8
+    assert_not @student.valid?
+  end
+
+  test "password should have a minimum length" do
+    @student.password = @student.password_confirmation = "a" * 7
+    assert_not @student.valid?
   end
 end
