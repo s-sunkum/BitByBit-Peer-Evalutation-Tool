@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_09_202403) do
+ActiveRecord::Schema.define(version: 2022_04_09_215714) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "score"
-    t.integer "evaluator"
-    t.integer "target_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "comments"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -32,16 +31,17 @@ ActiveRecord::Schema.define(version: 2022_04_09_202403) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.integer "teacher_id"
     t.index ["email"], name: "index_students_on_email", unique: true
   end
 
-  create_table "teams", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-
+  create_table "students_teams", id: false, force: :cascade do |t|
+    t.integer "team_id", null: false
+    t.integer "student_id", null: false
+    t.index ["student_id", "team_id"], name: "index_students_teams_on_student_id_and_team_id"
+    t.index ["team_id", "student_id"], name: "index_students_teams_on_team_id_and_student_id"
   end
-  
+
   create_table "teachers", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 2022_04_09_202403) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.index ["email"], name: "index_teachers_on_email", unique: true
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "teacher_id"
   end
 
 end

@@ -7,4 +7,6 @@ class Teacher < ApplicationRecord
     uniqueness: true
     has_secure_password
     validates :password, presence: true, length: { minimum: 8 }
+    has_many :students
+    has_many :teams
 end
