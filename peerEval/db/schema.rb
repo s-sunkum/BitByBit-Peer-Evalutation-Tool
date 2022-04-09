@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_04_09_215714) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "comments"
+    t.integr "project_id"
   end
 
   create_table "projects", force: :cascade do |t|
