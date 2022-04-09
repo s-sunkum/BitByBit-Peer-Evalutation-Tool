@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_09_182907) do
+ActiveRecord::Schema.define(version: 2022_04_09_202403) do
 
   create_table "evaluations", force: :cascade do |t|
-    t.integer "project_id"
     t.integer "score"
     t.integer "evaluator"
     t.integer "target_id"
-    t.integer "team_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,6 +33,12 @@ ActiveRecord::Schema.define(version: 2022_04_09_182907) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.index ["email"], name: "index_students_on_email", unique: true
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
