@@ -7,4 +7,5 @@ class Student < ApplicationRecord
   validates :password, presence: true, length: { minimum: 8 }
   belongs_to :teacher
   has_and_belongs_to_many :teams
+  has_many :evaluations
 end
