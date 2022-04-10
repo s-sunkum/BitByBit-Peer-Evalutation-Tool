@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_09_215714) do
+ActiveRecord::Schema.define(version: 2022_04_10_001617) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "comments"
-    t.integr "project_id"
+    t.integer "project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -37,10 +37,8 @@ ActiveRecord::Schema.define(version: 2022_04_09_215714) do
   end
 
   create_table "students_teams", id: false, force: :cascade do |t|
-    t.integer "team_id", null: false
     t.integer "student_id", null: false
-    t.index ["student_id", "team_id"], name: "index_students_teams_on_student_id_and_team_id"
-    t.index ["team_id", "student_id"], name: "index_students_teams_on_team_id_and_student_id"
+    t.integer "team_id", null: false
   end
 
   create_table "teachers", force: :cascade do |t|
