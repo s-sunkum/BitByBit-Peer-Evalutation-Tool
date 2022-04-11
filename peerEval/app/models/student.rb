@@ -6,7 +6,7 @@ class Student < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }
   belongs_to :teacher
-  has_many :evaluations
   has_many :student_teams
   has_many :teams, through: :student_teams
+  has_many :evaluations
 end
