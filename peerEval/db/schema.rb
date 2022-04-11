@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_10_192354) do
+ActiveRecord::Schema.define(version: 2022_04_11_164527) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "score"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2022_04_10_192354) do
     t.integer "team_id"
   end
 
+  create_table "student_teams", force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "team_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_student_teams_on_student_id"
+    t.index ["team_id"], name: "index_student_teams_on_team_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -36,11 +45,6 @@ ActiveRecord::Schema.define(version: 2022_04_10_192354) do
     t.string "password_digest"
     t.integer "teacher_id"
     t.index ["email"], name: "index_students_on_email", unique: true
-  end
-
-  create_table "students_teams", id: false, force: :cascade do |t|
-    t.integer "student_id", null: false
-    t.integer "team_id", null: false
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -59,4 +63,6 @@ ActiveRecord::Schema.define(version: 2022_04_10_192354) do
     t.integer "teacher_id"
   end
 
+  add_foreign_key "student_teams", "students"
+  add_foreign_key "student_teams", "teams"
 end

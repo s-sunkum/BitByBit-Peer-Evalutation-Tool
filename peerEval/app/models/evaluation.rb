@@ -3,7 +3,6 @@ class Evaluation < ApplicationRecord
     validates :comments, presence: true, length: { maximum: 500, minimum: 1}
     belongs_to :project
     belongs_to :student
-
 end
 
 
