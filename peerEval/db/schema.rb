@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2022_04_11_212648) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "comments"
-    t.integer "project_id"
     t.integer "evaluator_id"
     t.integer "evaluatee_id"
   end
