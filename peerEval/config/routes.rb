@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'pages/home'
+
   root 'pages#home'
-  get 'projects/new'
-  get 'teams/new'
-  get 'teachers/new'
-  get 'evaluations/new'
-  get 'students/new'
+  get '/teachersignup', to: 'teachers#new'
+  get    '/teacherlogin',   to: 'teacher_sessions#new'
+  post   '/teacherlogin',   to: 'teacher_sessions#create'
+  delete '/teacherlogout',  to: 'teacher_sessions#destroy'
   resources :students
+  resources :teachers
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
