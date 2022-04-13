@@ -9,4 +9,10 @@ class Teacher < ApplicationRecord
     validates :password, presence: true, length: { minimum: 8 }
     has_many :students
     has_many :teams
+
+    def Teacher.digest(string)
+        cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                      BCrypt::Engine.cost
+        BCrypt::Password.create(string, cost: cost)
+    end
 end
