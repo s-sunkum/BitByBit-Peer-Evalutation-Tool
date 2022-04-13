@@ -8,7 +8,7 @@ class TeachersController < ApplicationController
   end
 
   def create
-    @teacher = Teacher.new(teacher_params) # Not the final implementation!
+    @teacher = Teacher.new(teacher_params)
     if @teacher.save
       teacher_log_in @teacher
       flash[:success] = "Welcome to PeerEval Tool!"

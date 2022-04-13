@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_11_212648) do
+ActiveRecord::Schema.define(version: 2022_04_13_221652) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "score"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_212648) do
     t.text "comments"
     t.integer "evaluator_id"
     t.integer "evaluatee_id"
+    t.integer "project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_212648) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.integer "teacher_id"
+    t.string "access_token"
     t.index ["email"], name: "index_students_on_email", unique: true
   end
 

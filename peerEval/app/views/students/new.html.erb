@@ -1,2 +1,21 @@
-<h1>Students#new</h1>
-<p>Find me in app/views/students/new.html.erb</p>
+
+<% provide(:title, 'Create Student') %>
+<h1>Create Student</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @student, local: true) do |f| %>
+      <%= render 'shared/error_messages_student' %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <%= f.label :access_token %>
+      <%= f.text_field :access_token %>
+
+      <%= f.submit "Create Student Account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
