@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'student_sessions/new'
   root 'pages#home'
+  get '/studentlogin', to: 'student_sessions#new'
+  post   '/studentlogin',   to: 'student_sessions#create'
+  delete '/studentlogout',  to: 'student_sessions#destroy'
+  get '/studentsignup', to: 'students#update_password'
+  patch 'studentsignup', to: 'students#update_password'
   get '/teachersignup', to: 'teachers#new'
   get    '/teacherlogin',   to: 'teacher_sessions#new'
   post   '/teacherlogin',   to: 'teacher_sessions#create'
