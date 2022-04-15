@@ -7,6 +7,9 @@ class StudentsController < ApplicationController
     @student = Student.all
   end
 
+  def show 
+    @student = Student.find(params[:id])
+  end
   def create
     @student = Student.new(student_params)
     @student.teacher_id = current_teacher.id
