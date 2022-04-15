@@ -6,7 +6,7 @@ module StudentSessionsHelper
 
   # Returns the current logged-in student (if any).
   def current_student
-    @current_student ||= student.find_by(id: session[:student_id]) if session[:student_id]
+    @current_student ||= Student.find_by(id: session[:student_id]) if session[:student_id]
   end
 
   # Returns true if the student is logged in, false otherwise.

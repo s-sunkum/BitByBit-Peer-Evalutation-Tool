@@ -1,6 +1,9 @@
 class StudentSessionsController < ApplicationController
   def new
+    
   end
+
+
   def create
     student = Student.find_by(email: params[:session][:email].downcase)
     if student && student.authenticate(params[:session][:password])
