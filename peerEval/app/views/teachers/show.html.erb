@@ -1,3 +1,5 @@
 <% provide(:title, @teacher.name) %>
 <%= button_to "Class Roster" , students_path, :class => "btn btn-primary", :method => :get%>
 <%= button_to "Add Students",new_student_path,:class => "btn btn-primary", :method => :get %>
+<%= button_to "Create Teams",new_team_path,:class => "btn btn-primary", :method => :get %>
+<%= button_to "Add Students To Team",addstudents_path,:class => "btn btn-primary", :method => :get %>

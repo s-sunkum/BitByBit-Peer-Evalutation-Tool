@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   get    '/teacherlogin',   to: 'teacher_sessions#new'
   post   '/teacherlogin',   to: 'teacher_sessions#create'
   delete '/teacherlogout',  to: 'teacher_sessions#destroy'
+  get '/addstudents',       to: 'teams_helper#index'
+  post '/addstudents',       to: 'teams_helper#create'
   resources :students
   resources :teachers
+  resources :teams
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

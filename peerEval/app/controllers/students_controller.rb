@@ -41,7 +41,7 @@ class StudentsController < ApplicationController
           flash[:success] = "Account successfully created!"
           redirect_to @student
         else
-          render 'update_password'
+           render 'update_password'
         end
       else
         render 'index'
