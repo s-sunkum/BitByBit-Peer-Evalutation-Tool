@@ -1,5 +1,12 @@
 <% provide(:title, @teacher.name) %>
-<%= button_to "Class Roster" , students_path, :class => "btn btn-primary", :method => :get%>
-<%= button_to "Add Students",new_student_path,:class => "btn btn-primary", :method => :get %>
-<%= button_to "Create Teams",new_team_path,:class => "btn btn-primary", :method => :get %>
-<%= button_to "Add Students To Team",addstudents_path,:class => "btn btn-primary", :method => :get %>
+<h1>Home</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= button_to "Class Roster" , students_path, :class => "btn btn-primary", :method => :get%>
+        <%= button_to "Show Teams" , showteams_path, :class => "btn btn-primary", :method => :get%>
+        <%= button_to "Add Students",new_student_path,:class => "btn btn-primary", :method => :get %>
+        <%= button_to "Create Teams",new_team_path,:class => "btn btn-primary", :method => :get %>
+        <%= button_to "Add Students To Team",addstudents_path,:class => "btn btn-primary", :method => :get %>
+        <%= button_to "Create Project",new_project_path,:class => "btn btn-primary", :method => :get %>
+    </div>
+</div>

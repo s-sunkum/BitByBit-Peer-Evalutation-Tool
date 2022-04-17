@@ -1,0 +1,8 @@
+<h2>Team Members: </h2>
+<% @students.each do |s| %>
+    <p><%= s.name %></p>
+<% end %>
+<h2>Projects: </h2>
+<% @projects.each do |p| %>
+    <p><%= p.name %></p>
+<% end %>

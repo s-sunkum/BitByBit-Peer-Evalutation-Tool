@@ -13,8 +13,12 @@ Rails.application.routes.draw do
   delete '/teacherlogout',  to: 'teacher_sessions#destroy'
   get '/addstudents',       to: 'teams_helper#index'
   post '/addstudents',       to: 'teams_helper#create'
+  get '/showteams',   to: 'teams#index'
+  post 'projects/new', to: 'projects#create'
+  get '/showprojects', to: 'projects#show'
   resources :students
   resources :teachers
   resources :teams
+  resources :projects
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
