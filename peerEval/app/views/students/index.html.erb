@@ -1,7 +1,28 @@
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    tr:nth-child(even){
+        background-color: lightgrey;
+    }   
+</style>
+<h2> <b>Student Roster</b> </h2>
+<table style="width:100%">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Access Token</th>
+    </tr>
 <% @student.each do |stu| %>
     <% if stu.teacher_id == current_teacher.id%>
-        <p><%= stu.name %></p>
-        <p> <%= stu.email %></p>
-        <p> <%= stu.access_token%> </p>
+            <tr>
+                <td><%= stu.name %></td>
+                <td><%= stu.email%></td>
+                <td><%= stu.access_token %></td>
+            </tr>
     <% end %>
 <% end %>
+</table>
+<br>
+
+<%= link_to 'Back to Menu', current_teacher%>
