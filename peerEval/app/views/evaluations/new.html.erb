@@ -1,2 +1,19 @@
-<h1>Evaluations#new</h1>
-<p>Find me in app/views/evaluations/new.html.erb</p>
+<% provide(:title, 'Make Evaluation') %>
+<h1>Make Evaluation</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @evaluation, local: true) do |f| %>
+      <%= f.label :score %>
+      <%= f.number_field :score, in: 1.0..5.0, step: 1.0 %>
+    
+      <%= f.label :comments %>
+      <%= f.text_area :comments, size: "70x5" %>
+
+      <%= f.submit "Make Evaluation", class: "btn btn-primary" %>
+      <br>
+      <br>
+      <%= link_to 'Back to Menu', showprojects_path(@project.id)%>
+    <% end %>
+  </div>
+</div>

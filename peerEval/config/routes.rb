@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   get '/showteams',   to: 'teams#index'
   post 'projects/new', to: 'projects#create'
   get '/showprojects', to: 'projects#show'
+  post 'evaluations/new',  to: 'evaluations#create'
   resources :students
   resources :teachers
   resources :teams
   resources :projects
+  resources :evaluations
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
