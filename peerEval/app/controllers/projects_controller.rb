@@ -15,7 +15,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @teams = current_teacher.teams
+    if teacher_logged_in?
+      @teams = current_teacher.teams
+    else
+      @teams = current_student.teams
+    end
     @team = @teams.find_by(id: params[:teamID])
     @students = @team.students
     @projects = @team.projects

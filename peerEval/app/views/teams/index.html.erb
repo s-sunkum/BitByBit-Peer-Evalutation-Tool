@@ -1,5 +1,9 @@
-<% @team.each do |t| %>
-    <% if t.teacher_id == current_teacher.id%>
-    <%= link_to t.name, showprojects_path(:teamID => t.id), :class => "button" %>
+<% if teacher_logged_in?%>
+    <% @teams.each do |t| %>
+        <%= link_to t.name, showprojects_path(:teamID => t.id), :class => "btn btn-primary" %>
+    <% end %>
+<% else %>
+    <% @teams.each do |t| %>
+        <%= link_to t.name, showprojects_path(:teamID => t.id), :class => "btn btn-primary" %>
     <% end %>
 <% end %>
