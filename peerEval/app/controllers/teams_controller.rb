@@ -16,7 +16,8 @@ class TeamsController < ApplicationController
   end
 
   def index
-    @team = Team.all
+    @teams = StudentTeam.all.select { |m| m.student_id == current_student.id }
+    
   end
 
   private

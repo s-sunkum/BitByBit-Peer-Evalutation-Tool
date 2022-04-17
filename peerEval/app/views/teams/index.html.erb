@@ -1,0 +1,5 @@
+<% @teams.each do |team| %>
+    <% @current= Team.all.select{|t| t.id == team.team_id } %>
+    <p><%= @current.first.name %></p>
+    
+<% end %>
