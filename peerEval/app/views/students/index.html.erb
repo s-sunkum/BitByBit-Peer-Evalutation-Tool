@@ -1,5 +1,5 @@
 <% @student.each do |stu| %>
-    <% if stu.id == current_teacher.id%>
+    <% if stu.teacher_id == current_teacher.id%>
         <p><%= stu.name %></p>
         <p> <%= stu.email %></p>
         <p> <%= stu.access_token%> </p>

@@ -1,0 +1,5 @@
+<%= form_with() do |f| %>
+    <%= f.select :team_id, @teams.map { |t| [t.name, t.id] }%>
+    <%= f.select :student_id, @students.map { |s| [s.name, s.id] }%>
+    <%= f.submit %>
+<% end %>
