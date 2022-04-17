@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_13_221652) do
+ActiveRecord::Schema.define(version: 2022_04_17_012403) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "score"
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 2022_04_13_221652) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
     t.integer "teacher_id"
     t.string "access_token"
+    t.string "password"
     t.index ["email"], name: "index_students_on_email", unique: true
   end
 
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_04_13_221652) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
+    t.string "password"
     t.index ["email"], name: "index_teachers_on_email", unique: true
   end
 
