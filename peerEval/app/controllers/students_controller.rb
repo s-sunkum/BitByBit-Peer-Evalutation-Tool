@@ -15,6 +15,16 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
+  def grade
+    @student = Student.find(params[:id])
+  end
+
+  def update
+    @student = Student.find(params[:id])
+    @student.update_attribute(:score, params[:score])
+    redirect_to @student
+  end
+
   def create
     if teacher_logged_in?
       @student = Student.new(student_params)
