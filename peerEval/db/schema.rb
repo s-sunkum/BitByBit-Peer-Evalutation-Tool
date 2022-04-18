@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_17_012403) do
+ActiveRecord::Schema.define(version: 2022_04_18_212246) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "score"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2022_04_17_012403) do
     t.integer "teacher_id"
     t.string "access_token"
     t.string "password"
+    t.integer "grade"
     t.index ["email"], name: "index_students_on_email", unique: true
   end
 
