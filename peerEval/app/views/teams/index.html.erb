@@ -1,9 +1,22 @@
+<style>
+    h3{text-align: left;}
+    hr.solid{
+        border-top: 3px solid #bbb;
+    }
+</style>
+<h3> <b> Teams: </b></h3>
+<br>
 <% if teacher_logged_in?%>
     <% @teams.each do |t| %>
         <%= link_to t.name, projects_path(:teamID => t.id), :class => "btn btn-primary" %>
     <% end %>
+    <hr class="solid">
 <% else %>
     <% @teams.each do |t| %>
         <%= link_to t.name, projects_path(:teamID => t.id), :class => "btn btn-primary" %>
     <% end %>
+    <hr class="solid">
 <% end %>
+<br>
+<br>
+<%= link_to 'Back to Menu', current_teacher,class: "btn btn-primary"  %>

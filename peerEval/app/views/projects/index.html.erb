@@ -1,19 +1,33 @@
 <% if teacher_logged_in? %>
+    <style>
+        h2{text-align:  left;}
+    </style>
     <h2>Team Members: </h2>
+    <ul>
     <% @students.each do |s| %>
-        <p><%= s.name %></p>
+        <li><%= s.name %></li>
     <% end %>
+    </ul>
+    <br>
     <h2>Projects: </h2>
+    <ul>
     <% @projects.each do |p| %>
-        <p><%= p.name %></p>
+        <li><%= p.name %></li>
     <% end %>
+    </ul>
 <% else%>
     <h2>Team Members: </h2>
+    <ul>
     <% @students.each do |s| %>
-        <p><%= s.name %></p>
+        <li><%= s.name %></li>
     <% end %>
+    </ul>
     <h2>Projects: </h2>
+    <ul>
     <% @projects.each do |p| %>
         <%= link_to p.name, showprojects_path(:projectID => p.id), :class => "btn btn-primary" %>
     <% end %>
+    </ul>
 <% end %>
+<br>
+<%= link_to 'Back to Menu', current_teacher, class: "btn btn-primary" %>

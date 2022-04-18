@@ -7,8 +7,13 @@
       <%#= render 'shared/error_messages_project' %>
       <%= f.label :name %>
       <%= f.text_field :name %>
+      <p> <b>Team: </b></p>
       <%= f.select :team_id, @teams.map { |t| [t.name, t.id] }%>
       <%= f.submit "Create Project", class: "btn btn-primary" %>
     <% end %>
+    <br>
+    <%= link_to 'Back to Menu', current_teacher, class: "btn btn-primary" %>
   </div>
 </div>
+
+

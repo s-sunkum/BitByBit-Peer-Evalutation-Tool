@@ -1,8 +1,8 @@
 <%= form_with() do |f| %>
     <h4> <b>Select a Team:</b> </h4>
     <%= f.select :team_id, @teams.map { |t| [t.name, t.id] }%>
-    <h4> <b>Select a Student:</b> </h4>
+    <h4> <b>Select a Student to Add:</b> </h4>
     <%= f.select :student_id, @students.map { |s| [s.name, s.id] }%>
-    <%= f.submit %>
-    <%= link_to 'Back to Menu', current_teacher%>
+    <%= f.submit "Add Student to Team"%>
+    <%= link_to 'Back to Menu', current_teacher, class: "btn btn-primary"%>
 <% end %>

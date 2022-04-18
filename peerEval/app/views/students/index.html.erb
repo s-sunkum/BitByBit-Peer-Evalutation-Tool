@@ -8,21 +8,27 @@
 </style>
 <h2> <b>Student Roster</b> </h2>
 <table style="width:100%">
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Access Token</th>
-    </tr>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Access Token</th>
+        </tr>
+    </thead>
+<% num = 1 %>
 <% @student.each do |stu| %>
     <% if stu.teacher_id == current_teacher.id%>
             <tr>
+                <th scope = "row"><%= num %></th>
                 <td><%= stu.name %></td>
                 <td><%= stu.email%></td>
                 <td><%= stu.access_token %></td>
             </tr>
+            <% num = num + 1 %>
     <% end %>
 <% end %>
 </table>
 <br>
 
-<%= link_to 'Back to Menu', current_teacher%>
+<%= link_to 'Back to Menu', current_teacher, class: "btn btn-primary" %>
