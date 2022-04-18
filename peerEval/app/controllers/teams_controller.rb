@@ -18,7 +18,6 @@ class TeamsController < ApplicationController
   def index
     if(!teacher_logged_in?)
       @teams = current_student.teams
-      #@teams = StudentTeam.all.select { |m| m.student_id == current_student.id }
     else 
       @teams = current_teacher.teams
     end  

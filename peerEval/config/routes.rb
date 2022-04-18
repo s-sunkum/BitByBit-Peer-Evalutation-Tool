@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post 'projects/new', to: 'projects#create'
   get '/showprojects', to: 'projects#show'
   post 'evaluations/new',  to: 'evaluations#create'
+  get '/evaluationsindex', to: 'evaluations#index'
+  post '/evaluationsindex', to: 'evaluations#index'
   resources :students
   resources :teachers
   resources :teams
