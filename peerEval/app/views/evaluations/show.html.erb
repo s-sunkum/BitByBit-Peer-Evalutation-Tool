@@ -1,9 +1,0 @@
-<% @sum = 0%>
-<% @counter = 0%>
-<% @evals.each do |eval| %>
-    <% @sum += @eval.score%>
-    <% @counter++%>
-    <p><%= @eval.score %></p>
-    <p><%= @eval.comments %></p>
-<% end %>
-<p><%= @sum/@counter%></p>
