@@ -1,8 +1,9 @@
-<%= form_with() do |f| %>
+<%= form_with(class: "form-group") do |f| %>
     <h4> <b>Select a Team:</b> </h4>
-    <%= f.select :team_id, @teams.map { |t| [t.name, t.id] }%>
+    <%= f.select :team_id, @teams.map { |t| [t.name, t.id] }, {}, {class: "form-control"}%>
     <h4> <b>Select a Student:</b> </h4>
-    <%= f.select :student_id, @students.map { |s| [s.name, s.id] }%>
-    <%= f.submit %>
-    <%= link_to 'Back to Menu', current_teacher%>
+    <%= f.select :student_id, @students.map { |s| [s.name, s.id] }, {}, {class: "form-control"}%>
+    <%= f.submit "Add", class: "btn btn-primary" %>
+    <br><br>
+    <%= link_to 'Back to Menu', current_teacher, class: "btn btn-default glyphicon glyphicon-menu-left"%>
 <% end %>
