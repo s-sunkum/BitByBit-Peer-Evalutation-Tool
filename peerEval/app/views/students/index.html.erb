@@ -16,7 +16,7 @@
 <% @student.each do |stu| %>
     <% if stu.teacher_id == current_teacher.id%>
             <tr>
-                <td><%= stu.name %></td>
+                <td><%= link_to stu.name, gradestudent_path(:id => stu.id), :class => "btn btn-primary" %></td>
                 <td><%= stu.email%></td>
                 <td><%= stu.access_token %></td>
             </tr>

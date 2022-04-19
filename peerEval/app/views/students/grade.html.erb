@@ -1,0 +1,17 @@
+<% provide(:title, 'New Grade') %>
+<h1>New Grade</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% student = Student.find_by(id: params[:id].to_i) %>
+    <h2><%= student.name %>'s current grade: <%= student.grade %></h2>
+    <%= form_with(model: @student, local: true) do |f| %>
+
+      <%= f.label :grade %>
+      <%= f.number_field :grade, in: 0..100, step: 1  %>
+
+
+      <%= f.submit "Grade A Student", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
