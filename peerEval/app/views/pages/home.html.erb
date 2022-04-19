@@ -1,8 +1,41 @@
-<h1>Welcome to the PeerEval tool!</h1>
-<p2> The PeerEval tool is a great tool for students to evaluate their teammates on their efforts on different projects throughout the school year. It also allows instructors to create different teams of students and add students to their class roster. Click the links on this page to navigate the website.</p2>
-<br>
-<br>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to 'Student register', studentsignup_path %>
-<br>
-<%= link_to 'Teacher register', teachersignup_path %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PeerEval</title>
+</head>
+<body>
+<div class = "homeStyle">
+  <div id="cover">        
+  <div class="jumbotron jumbotron-fluid"> 
+    <div class="container">
+      <h1 class="title display-3 text-center" style="font-weight:100;">Peer<strong style="font-weight:600;">Eval</strong></h1>
+      <p class="lead string-1 text-center">Promotes collaborative work for peers everywhere!</p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h1>About PeerEval</h1>
+      <p>The PeerEval tool is a great tool for students to evaluate their teammates on their efforts on different projects throughout the school year. It also allows instructors to create different teams of students and add students to their class roster. Click the options on the navigation bar on the top right of this page to navigate the website!</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-envelope logo"></span>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-user logo"></span>
+    </div>
+    <div class="col-sm-8">
+      <h1>Users</h1>
+      <h4><strong>Teachers:</strong> Click 'Teacher Log In' at the top of the page to start your classroom!</h4>
+      <h4><strong>Students:</strong> Click 'Student Log In' to see your teams and evaluations!</h4>
+    </div>
+  </div>
+</div>
+</body>
+</html>
