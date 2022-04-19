@@ -1,9 +1,12 @@
 <% if teacher_logged_in?%>
+    <h1>Your teams </h1>
+    <ul class = "list-group">
     <% @teams.each do |t| %>
-        <%= link_to t.name, projects_path(:teamID => t.id), :class => "btn btn-primary" %>
+        <h3><%= link_to t.name, projects_path(:teamID => t.id), class: "list-group-item" %></h3>
     <% end %>
+    </ul>
 <% else %>
     <% @teams.each do |t| %>
-        <%= link_to t.name, projects_path(:teamID => t.id), :class => "btn btn-primary" %>
+        <%= link_to t.name, projects_path(:teamID => t.id), :class => "list-group-item" %>
     <% end %>
 <% end %>

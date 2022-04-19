@@ -1,15 +1,23 @@
+
 <%= form_with url: evaluationsindex_path(:projectID => params[:projectID]) do |f| %>
-    <h4> <b>Select a Student:</b> </h4>
-    <%= f.select :student_id, @students.map { |s| [s.name, s.id] } %>
-    <%= f.submit "See evaluations" %>
-    <%= link_to 'Back to Menu', current_teacher%>
+    <div class = "form-group">
+        <label for = "student_id">Select a Student:</label>
+        <%= f.select :student_id, @students.map { |s| [s.name, s.id] }, {}, {class: "form-control"}%>
+    </div>
+        <%= f.submit "See evaluations", class: "btn" %>
+        <br><br>
+        <%= link_to 'Back to Menu', current_teacher, class: "btn btn-default"%>
 <% end %>
 
 <% if @seeEvals %>
     <h3><%= Student.find_by(id: params[:student_id].to_i).name%>'s evaluations:</h3>
-    <% @evals.each do |e| %>
-    <h4><%= Student.find_by(id: e.evaluator_id).name %></h4>
-    <p>Score: <%= e.score %></p>
-    <p>Comments: <%= e.comments %></p>
-    <% end %>
+    <div class = "panel-group">
+        <% @evals.each do |e| %>
+            <div class = "panel panel-primary">
+                <h4 class = "panel-heading"><%= Student.find_by(id: e.evaluator_id).name %></h4>
+                <p class = "panel-body">Score: <%= e.score %></p>
+                <p class = "panel-body">Comments: <%= e.comments %></p>
+            </div>
+        <% end %>
+    </div>
 <% end %>
