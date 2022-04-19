@@ -1,14 +1,20 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 <% if teacher_logged_in? %>
-    <h2>Team Members: </h2>
-    <% @students.each do |s| %>
-        <p><%= s.name %></p>
-    <% end %>
-    <h2>Projects: </h2>
-    <% @projects.each do |p| %>
-        <%= link_to p.name, evaluations_path(:projectID => p.id), :class => "btn btn-primary" %>
-    <% end %>
+    <div class = "panel-group">
+        <div class = "panel panel-primary">
+            <h2 class = "panel-heading">Team Members</h2>
+            <% @students.each do |s| %>
+                <h4 class = "panel-body"><span class= "list-group-item"><%= s.name %></span></h4>
+            <% end %>
+        </div>
+        <div class = "panel panel-primary">
+            <h2 class = "panel-heading">Projects: </h2>
+            <% @projects.each do |p| %>
+                <h4 class= "panel-body"><%= link_to p.name, evaluations_path(:projectID => p.id), :class => "list-group-item" %><h4>
+            <% end %>
+        </div>
+    </div>
 <% else%>
     <h2>Team Members: </h2>
     <% @students.each do |s| %>

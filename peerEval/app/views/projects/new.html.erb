@@ -3,13 +3,16 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with(model: @project, local: true) do |f| %>
+    <%= form_with(model: @project, local: true, class: "form-group") do |f| %>
       <%#= render 'shared/error_messages_project' %>
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: "form-control" %>
       <%= f.label :Team %>
-      <%= f.select :team_id, @teams.map { |t| [t.name, t.id] }%>
+      <%= f.select :team_id, @teams.map { |t| [t.name, t.id] }, {}, {class: "form-control"}%>
       <%= f.submit "Create Project", class: "btn btn-primary" %>
+      <br>
+      <br>
+      <%= link_to 'Back to Menu', current_teacher, class: "btn btn-default glyphicon glyphicon-menu-left"%>
     <% end %>
   </div>
 </div>
