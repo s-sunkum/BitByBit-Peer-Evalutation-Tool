@@ -59,6 +59,16 @@ class StudentsController < ApplicationController
     end
   end
 
+  def showEvaluations
+    @submitted = false
+    if(params[:team_id] != nil)
+      @submitted = true
+      @chosenTeam = current_student.teams.find_by(id: params[:team_id])
+    end
+    @teams = current_student.teams
+
+  end
+
   private
 
   def student_params

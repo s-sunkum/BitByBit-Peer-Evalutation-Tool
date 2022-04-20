@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%= form_with() do |f| %>
+    <h4> <b>Select a Team:</b> </h4>
+    <%= f.select :team_id, @teams.map { |t| [t.name, t.id] }, {}, {class: "form-control"}%>
+    <%= f.submit "See Evaluations", class: "btn btn-primary" %>
+    <br><br>
+    <%= link_to 'Back to Menu', current_student, class: "btn btn-default glyphicon glyphicon-menu-left"%>
+<% end %>
+<br>
+<% if @submitted %>
+    <div class = "panel-group">
+        <% @chosenTeam.projects.each do |p| %>
+            <div class = "panel panel-primary">
+                <h4 class = "panel-heading"><%= p.name %></h4>
+                <% p.evaluations.each do |e| %>
+                    <% if e.evaluatee_id == current_student.id%>
+                        <p class = "panel-body">Score: <%= e.score %></p>
+                        <p class = "panel-body">Comments: <%= e.comments %></p>
+                    <% end %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+<% end %>
+</div>
+</div>

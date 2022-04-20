@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   post '/evaluationsindex', to: 'evaluations#index'
   get '/gradestudent', to: 'students#grade'
   patch '/gradestudent', to: 'students#update'
-
+  get '/showEvaluations', to: 'students#showEvaluations'
+  post '/showEvaluations', to: 'students#showEvaluations'
   resources :students
   resources :teachers
   resources :teams
