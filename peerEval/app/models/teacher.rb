@@ -6,6 +6,6 @@ class Teacher < ApplicationRecord
     format: { with: VALID_EMAIL_REGEX },
     uniqueness: true
     validates :password, presence: true, length: { minimum: 8 }
-    has_many :students
-    has_many :teams
+    has_many :students, dependent: :destroy
+    has_many :teams, dependent: :destroy
 end

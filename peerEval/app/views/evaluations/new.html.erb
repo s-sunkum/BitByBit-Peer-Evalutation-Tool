@@ -6,18 +6,18 @@
     <%= form_with(model: @evaluation, local: true) do |f| %>
 
       <%= f.label :Teammate %>
-      <%= f.select :evaluatee_id, @teammates.map { |t| [t.name, t.id] }%>
+      <%= f.select :evaluatee_id, @teammates.map { |t| [t.name, t.id] }, {},{class: "form-control"}%>
 
       <%= f.label :score %>
-      <%= f.number_field :score, in: 1.0..5.0, step: 1.0 %>
+      <%= f.number_field :score, in: 1.0..5.0, step: 1.0, class: "form-control"%>
     
       <%= f.label :comments %>
-      <%= f.text_area :comments, size: "70x5" %>
+      <%= f.text_area :comments, size: "70x5", class: "form-control" %>
 
       <%= f.submit "Make Evaluation", class: "btn btn-primary" %>
       <br>
       <br>
-      <%= link_to 'Back to Menu', student_path(current_student.id)%>
+      <%= link_to 'Back to Menu', student_path(current_student.id), class: "btn btn-default glyphicon glyphicon-menu-left"%>
     <% end %>
   </div>
 </div>

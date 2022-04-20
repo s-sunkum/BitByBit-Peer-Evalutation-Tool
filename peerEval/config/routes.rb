@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   patch '/gradestudent', to: 'students#update'
   get '/showEvaluations', to: 'students#showEvaluations'
   post '/showEvaluations', to: 'students#showEvaluations'
+  get '/removeStudents', to: 'students#destroy'
   resources :students
   resources :teachers
   resources :teams

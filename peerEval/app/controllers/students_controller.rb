@@ -11,6 +11,14 @@ class StudentsController < ApplicationController
     @student = Student.new
   end
 
+  def destroy
+    @student = Student.find(params[:id])
+    if @student.destroy
+      flash[:success] = "Student Removed From Class"
+      redirect_to students_path
+    end
+  end
+  
   def show 
     @student = Student.find(params[:id])
   end

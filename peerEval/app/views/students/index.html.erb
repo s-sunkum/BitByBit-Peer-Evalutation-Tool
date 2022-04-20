@@ -6,16 +6,18 @@
         <th>Email</th>
         <th>Access Token</th>
         <th>Grade</th>
+        <th>Action<th>
     </tr>
     </thead>
     <tbody>
 <% @student.each do |stu| %>
     <% if stu.teacher_id == current_teacher.id%>
             <tr>
-                <td><%= link_to stu.name, gradestudent_path(:id => stu.id), :class => "btn btn-link" %></td>
+                <td><%= stu.name %></td>
                 <td><%= stu.email%></td>
                 <td><%= stu.access_token %></td>
-                <td><%= stu.grade %></td>
+                <td><%= link_to "Grade: ", gradestudent_path(:id => stu.id), :class => "btn btn-link" %><%= stu.grade %></td>
+                <td><%= link_to "Remove", removeStudents_path(id: stu.id), :class => "btn btn-link"%></td>
             </tr>
     <% end %>
 <% end %>

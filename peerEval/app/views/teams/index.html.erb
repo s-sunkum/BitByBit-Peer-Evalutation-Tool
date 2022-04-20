@@ -1,13 +1,32 @@
-<h1>Teams</h1>
-
+<h2>Teams</h2>
 <% if teacher_logged_in?%>
-    <ul class = "list-group">
+    <table class = "table table-striped">
+    <thead>
+    <tr>
+        <th>Team Name</th>
+        <th>Action<th>
+    </tr>
+    </thead>
+    <tbody>
     <% @teams.each do |t| %>
-        <h3><%= link_to t.name, projects_path(:teamID => t.id), class: "list-group-item" %></h3>
+        <tr>
+        <td><%= t.name %></td>
+        <td><%= link_to "Edit" %> | <%= link_to "Remove" %></td>
+        </tr>
     <% end %>
-    </ul>
+    </tbody>
+    </table>
+    <%= link_to 'Back To Menu', current_teacher, class: "btn btn-default glyphicon glyphicon-menu-left"%>
+
 <% else %>
     <% @teams.each do |t| %>
-        <%= link_to t.name, projects_path(:teamID => t.id), :class => "list-group-item" %>
+        <%= link_to t.name, projects_path(:teamID => t.id), :style => "text-align: center;", :class => "list-group-item" %>
     <% end %>
+    <%= link_to 'Back To Menu', current_student, class: "btn btn-default glyphicon glyphicon-menu-left"%>
 <% end %>
+
+
+
+
+
+
