@@ -22,8 +22,9 @@
     <% end %>
     <h2>Projects: </h2>
     <% @projects.each do |p| %>
-        <%= link_to p.name, new_evaluation_path(:projectID => p.id), :class => "btn btn-primary" %>
+        <%= link_to p.name, new_evaluation_path(:projectID => p.id), :class => "list-group-item", :style => "text-align: center;" %>
     <% end %>
+    <br>
 <% end %>
 
 <%= link_to 'Back To Menu', current_teacher, class: "btn btn-default glyphicon glyphicon-menu-left"%>
