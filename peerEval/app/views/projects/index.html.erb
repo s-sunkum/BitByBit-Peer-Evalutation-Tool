@@ -15,6 +15,7 @@
             <% end %>
         </div>
     </div>
+    <%= link_to 'Back To Menu', current_teacher, class: "btn btn-default glyphicon glyphicon-menu-left"%>
 <% else%>
     <h2>Team Members: </h2>
     <% @students.each do |s| %>
@@ -25,8 +26,7 @@
         <%= link_to p.name, new_evaluation_path(:projectID => p.id), :class => "list-group-item", :style => "text-align: center;" %>
     <% end %>
     <br>
+    <%= link_to 'Back To Menu', current_student, class: "btn btn-default glyphicon glyphicon-menu-left"%>
 <% end %>
-
-<%= link_to 'Back To Menu', current_teacher, class: "btn btn-default glyphicon glyphicon-menu-left"%>
 </div>
 </div>
