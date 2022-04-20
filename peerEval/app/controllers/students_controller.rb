@@ -43,7 +43,6 @@ class StudentsController < ApplicationController
 
     else
       @student = Student.find_by(email: params[:student][:email].downcase)
-      @student.password = "foobar123"
       if @student.valid? && @student.access_token == params[:student][:access_token]
         @student.password = params[:student][:password]
         if @student.save
