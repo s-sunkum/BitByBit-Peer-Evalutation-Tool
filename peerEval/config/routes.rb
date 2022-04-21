@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/personalEvaluations', to: 'students#personalEvaluations'
   post '/personalEvaluations', to: 'students#personalEvaluations'
   get '/removeStudents', to: 'students#destroy'
+  get '/removeTeams', to: 'teams#destroy'
   resources :students
   resources :teachers
   resources :teams

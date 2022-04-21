@@ -16,7 +16,15 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    
+  
+  end
+  
+  def destroy
+    @team = Team.find(params[:id])
+    if @team.destroy
+      flash[:success] = "Team Removed From Class"
+      redirect_to teams_path
+    end
   end
 
   def index

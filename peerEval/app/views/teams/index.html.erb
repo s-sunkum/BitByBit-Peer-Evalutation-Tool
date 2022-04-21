@@ -1,4 +1,6 @@
 <h2>Choose a Team</h2>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
 <% if teacher_logged_in?%>
     <table class = "table table-striped">
     <thead>
@@ -11,27 +13,26 @@
     <% @teams.each do |t| %>
         <tr>
         <td><%= t.name %></td>
-        <td><%= link_to "Edit", edit_team_path(t.id) %> | <%= link_to "Remove" %> | <%= link_to "View Members/Evaluations", projects_path(:teamID => t.id) %></td>
+        <td><%= link_to "Edit", edit_team_path(t.id) %> | <%= link_to "Remove", removeTeams_path(id: t.id)%> | <%= link_to "View Members/Evaluations", projects_path(:teamID => t.id) %></td>
         </tr>
     <% end %>
     </tbody>
     </table>
     <br>
-    <%= link_to "Create Teams",new_team_path,:class => "list-group-item", :style => "text-align: center;",:method => :get %>
+    <%= link_to "Create Teams",new_team_path,:class => "btn btn-primary", :style => "text-align: center;",:method => :get %>
     <br>
     <%= link_to 'Back To Menu', current_teacher, class: "btn btn-default glyphicon glyphicon-menu-left"%>
 
 <% else %>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+
     <% @teams.each do |t| %>
         <%= link_to t.name, projects_path(:teamID => t.id), :style => "text-align: center;", :class => "list-group-item" %>
     <% end %>
     <%= link_to 'Back To Menu', current_student, class: "btn btn-default glyphicon glyphicon-menu-left"%>
-    </div>
-    </div>
-<% end %>
 
+<% end %>
+</div>
+</div>
 
 
 
