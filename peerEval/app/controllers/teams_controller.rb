@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
     @team.teacher_id = current_teacher.id
     if @team.save
       flash[:success] = "Team Successfully Created!"
-      redirect_to teacher_path(current_teacher.id)
+      redirect_to teams_path
     else
       render 'new'
     end
