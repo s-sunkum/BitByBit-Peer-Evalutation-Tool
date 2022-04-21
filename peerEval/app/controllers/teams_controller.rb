@@ -15,6 +15,10 @@ class TeamsController < ApplicationController
 
   end
 
+  def edit
+    
+  end
+
   def index
     if(!teacher_logged_in?)
       @teams = current_student.teams
