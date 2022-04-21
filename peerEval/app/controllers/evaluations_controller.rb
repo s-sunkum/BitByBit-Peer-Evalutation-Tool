@@ -16,7 +16,7 @@ class EvaluationsController < ApplicationController
       end
     end
     @eval = Evaluation.new(score: params[:score], comments: params[:comments], evaluator_id: current_student.id, evaluatee_id: params[:evaluatee_id], project_id: @proj)
-    if @eval.save && @unique
+    if @unique && @eval.save
       flash[:success] = "Successfully made an evaluation!"
     else
       flash[:danger] = "Error! Make sure evaluation hasn't been made and comments must be filled!"
