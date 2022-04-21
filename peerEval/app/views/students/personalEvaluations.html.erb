@@ -18,7 +18,8 @@
                 <p class = "panel-body"></p>
                 <%@count = @count + 1%>
                 <% p.evaluations.each do |e| %>
-                    <% if e.evaluatee_id == current_student.id%>
+                    <% if e.evaluator_id == current_student.id%>
+                        <p class = "panel-body">Sent to: <%= Student.find(e.evaluatee_id).name %></p>
                         <p class = "panel-body">Score: <%= e.score %></p>
                         <p class = "panel-body">Comments: <%= e.comments %></p>
                         <hr style = "border:1px solid black;">

@@ -6,42 +6,40 @@
                     <h2 class="panel-heading">Team Members</h2>
                     <% @students.each do |s| %>
                         <h4 class="panel-body"><span class="list-group-item">
-                                <%= s.name %>
-                            </span></h4>
-                        <% end %>
+                        <%= s.name %>
+                        </span></h4>
+                    <% end %>
                 </div>
                 <div class="panel panel-primary">
                     <h2 class="panel-heading">Projects: </h2>
                     <% @projects.each do |p| %>
                         <h4 class="panel-body">
-                            <%= link_to p.name, evaluations_path(:projectID=> p.id), :class => "list-group-item" %><h4>
-                                    <% end %>
+                        <%= link_to p.name, evaluations_path(:projectID=> p.id), :class => "list-group-item" %><h4>
+                    <% end %>
                 </div>
             </div>
             <%= link_to 'Back To Menu' , current_teacher, class: "btn btn-default glyphicon glyphicon-menu-left" %>
-                <% else%>
-                    <div class="panel-group">
-                        <div class="panel panel-primary">
-                            <h2 class="panel-heading">Team Members</h2>
-                            <% @students.each do |s| %>
-                                <h4 class="panel-body"><span class="list-group-item">
-                                        <%= s.name %>
-                                    </span></h4>
-                                <% end %>
-                        </div>
-                        <div class="panel panel-primary">
-                            <h2 class="panel-heading">Projects</h2>
-                            <% @projects.each do |p| %>
-                                <h4 class="panel-body">
-                                    <%= link_to p.name, new_evaluation_path(:projectID=> p.id), :class =>
-                                        "list-group-item", :style => "text-align: center;" %>
-                                </h4>
-                                <% end %>
-                            </div>
-                        </div>
-                        <br>
-                        <%= link_to 'Back To Menu' , current_student,
-                            class: "btn btn-default glyphicon glyphicon-menu-left" %>
-                            <% end %>
-                    </div>
+        <% else%>
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <h2 class="panel-heading">Team Members</h2>
+                    <% @students.each do |s| %>
+                        <h4 class="panel-body"><span class="list-group-item">
+                        <%= s.name %>
+                        </span></h4>
+                    <% end %>
+                </div>
+                <div class="panel panel-primary">
+                    <h2 class="panel-heading">Choose Project</h2>
+                    <% @projects.each do |p| %>
+                        <h4 class="panel-body">
+                        <%= link_to p.name, new_evaluation_path(:projectID=> p.id), :class =>"list-group-item", :style => "text-align: center;" %>
+                        </h4>
+                    <% end %>
+                </div>
+            </div>
+        <br>
+        <%= link_to 'Back To Menu' , current_student, class: "btn btn-default glyphicon glyphicon-menu-left" %>
+        <% end %>
     </div>
+</div>

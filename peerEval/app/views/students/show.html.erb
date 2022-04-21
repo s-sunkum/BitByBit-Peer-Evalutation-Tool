@@ -3,7 +3,8 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <%= link_to "Make Evaluation" , teams_path, :class => "list-group-item", :style => "text-align: center;", :method => :get%>
-        <%= link_to "See Evaluations", showEvaluations_path, :class => "list-group-item", :style => "text-align: center;", :method => :get%>
+        <%= link_to "See Evaluations Made By You", personalEvaluations_path, :class => "list-group-item", :style => "text-align: center;", :method => :get%>
+        <%= link_to "See Evaluations Made To You", showEvaluations_path, :class => "list-group-item", :style => "text-align: center;", :method => :get%>
         
     </div>
 </div>

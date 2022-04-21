@@ -44,7 +44,7 @@ class StudentsController < ApplicationController
       @student.grade = 0
       if @student.save
         flash[:success] = "Student Successfully Created!"
-        redirect_to teacher_path(current_teacher.id)
+        redirect_to students_path(current_teacher.id)
       else
         render 'new'
       end
@@ -74,6 +74,15 @@ class StudentsController < ApplicationController
     end
     @teams = current_student.teams
 
+  end
+
+  def personalEvaluations
+    @submitted = false
+    if(params[:team_id] != nil)
+      @submitted = true
+      @chosenTeam = current_student.teams.find_by(id: params[:team_id])
+    end
+    @teams = current_student.teams
   end
 
   private

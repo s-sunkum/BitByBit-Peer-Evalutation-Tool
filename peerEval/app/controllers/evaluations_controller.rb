@@ -8,13 +8,20 @@ class EvaluationsController < ApplicationController
 
   def create
     @proj = session[:passed_variable]
+    @all = Project.find(@proj).evaluations
+    @unique = true
+    @all.each do |e|
+      if (e.evaluatee_id == params[:evaluatee_id].to_i && e.evaluator_id == current_student.id)
+        @unique = false
+      end
+    end
     @eval = Evaluation.new(score: params[:score], comments: params[:comments], evaluator_id: current_student.id, evaluatee_id: params[:evaluatee_id], project_id: @proj)
-    if @eval.save
+    if @eval.save && @unique
       flash[:success] = "Successfully made an evaluation!"
     else
-      flash[:danger] = "Whoops, something went wrong!"
+      flash[:danger] = "Error! Make sure evaluation hasn't been made and comments must be filled!"
     end
-      redirect_to student_path(current_student.id)
+      redirect_to new_evaluation_path(:projectID=> @proj)
   end
 
   def show
