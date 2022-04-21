@@ -1,13 +1,20 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-<%= form_with() do |f| %>
-    <h4> <b>Select a Team:</b> </h4>
-    <%= f.select :team_id, @teams.map { |t| [t.name, t.id] }, {}, {class: "form-control"}%>
+<%= form_with url: addstudents_path(:team_id => params[:team_id]) do |f| %>
     <h4> <b>Select a Student:</b> </h4>
-    <%= f.select :student_id, @students.map { |s| [s.name, s.id] }, {}, {class: "form-control"}%>
+    <%= f.select :student_id, @tobeAdded.map { |s| [s.name, s.id] }, {}, {class: "form-control"}%>
     <%= f.submit "Add", class: "btn btn-primary" %>
     <br><br>
     <%= link_to 'Back to Menu', current_teacher, class: "btn btn-default glyphicon glyphicon-menu-left"%>
 <% end %>
+<br>
+<br>
+
+<div class = "panel panel-primary">
+<h4 class = "panel-heading"><b>Current Students: </b></h4>
+<% @current.each do |s| %>
+  <p class = "panel-body"><%= s.name %></p>
+<% end %>
+</div>
 </div>
 </div>

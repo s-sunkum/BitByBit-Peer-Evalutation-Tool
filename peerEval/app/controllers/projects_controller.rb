@@ -1,10 +1,11 @@
 class ProjectsController < ApplicationController
   def new
-    @teams = current_teacher.teams
+
+    @team = params[:team_id]
   end
 
   def create
-    @teams = current_teacher.teams
+    
     @project = Project.new(name: params[:name], team_id: params[:team_id])
     if @project.save
       flash[:success] = "Project Successfully Created!"

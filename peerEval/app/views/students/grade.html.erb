@@ -8,7 +8,7 @@
     <%= form_with(model: @student, local: true) do |f| %>
 
       <%= f.label :grade %>
-      <%= f.number_field :grade, in: 0..100, step: 1  %>
+      <%= f.number_field :grade, in: 0..100, step: 1, class: "form-control"  %>
 
 
       <%= f.submit "Grade A Student", class: "btn btn-primary" %>

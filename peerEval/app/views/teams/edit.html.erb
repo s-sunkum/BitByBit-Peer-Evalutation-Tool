@@ -1,0 +1,8 @@
+<h1>Edit Team</h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 list-group">
+        <%= link_to "Add Students To Team",addstudents_path(:team_id => params[:id]),:class => "list-group-item", :style => "text-align: center;",:method => :get %>
+        <%= link_to "Assign Project To Team",new_project_path(:team_id => params[:id]),:class => "list-group-item", :style => "text-align: center;",:method => :get %>
+    </div>
+</div>

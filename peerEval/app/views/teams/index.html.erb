@@ -11,11 +11,14 @@
     <% @teams.each do |t| %>
         <tr>
         <td><%= t.name %></td>
-        <td><%= link_to "Edit" %> | <%= link_to "Remove" %></td>
+        <td><%= link_to "Edit", edit_team_path(t.id) %> | <%= link_to "Remove" %> | <%= link_to "View Members/Evaluations", projects_path(:teamID => t.id) %></td>
         </tr>
     <% end %>
     </tbody>
     </table>
+    <br>
+    <%= link_to "Create Teams",new_team_path,:class => "list-group-item", :style => "text-align: center;",:method => :get %>
+    <br>
     <%= link_to 'Back To Menu', current_teacher, class: "btn btn-default glyphicon glyphicon-menu-left"%>
 
 <% else %>

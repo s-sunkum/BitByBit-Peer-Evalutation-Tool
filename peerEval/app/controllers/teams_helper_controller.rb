@@ -1,22 +1,25 @@
 class TeamsHelperController < ApplicationController
     def index
-        @teams = current_teacher.teams
-        @students = current_teacher.students
+        @current = []
+        @tobeAdded = []
+        @team = Team.find_by(id: params[:team_id])
+        current_teacher.students.each do |s|
+            if @team.students.include?(s)
+                @current.push(s)
+            else
+                @tobeAdded.push(s)
+            end
+        end
     end
 
     def create
-        @teams = current_teacher.teams
-        @students = current_teacher.students
         @student = Student.find_by(id: params[:student_id])
         @team = Team.find_by(id: params[:team_id])
-        if(!@student.teams.include? @team)
-            @student.teams << @team
-            flash.now[:success] = "Student added to team!"
-            render 'index'
-        else
-            flash.now[:danger] = "Student is already in this team!"
-            render 'index'
-        end
+  
+        @student.teams << @team
+        flash[:success] = "Student added to team!"
+        redirect_to addstudents_path(:team_id => params[:team_id])
+
     end 
 
 end
