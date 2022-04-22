@@ -34,7 +34,7 @@ To Run PeerEval:
 ### Testing
 - To run the testing done for the program type ```rails test``` in the terminal
 - All our testing can be viewed in the test folder. (Testing was done for models and controllers)
-- ***Note for grader:*** After adding foreign keys to our model some of our test cases were not able to be made since some models depended on others, which is something we can work on with more time.
+- ***Note for grader:*** After adding foreign keys to our model some of our test cases were not able to be made since some models depended on others, which is something we can work on with more time. Also, the team wasn't able to test the controllers thoroughly because we had a lot of parameter passing between controllers. 
 
 ### Project Development
 - Creating a functional database was one of the hardest steps for the team at the start. With a near deadline and little time to learn Ruby on Rails, it was challenging to absorb all the information and apply it. After getting our CRUD functionality for the models, it became easier since controllers and veiws could be split up between the team. 
