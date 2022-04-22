@@ -27,11 +27,22 @@ At the start most of our backend models were created together since the team wan
 
 To Run PeerEval:
 - Go into the PeerEval directory with ```cd peerEval```
-- - Type ```bundle install```
+- Type ```bundle install```
 - ***IMPORTANT*** First type ```rails webpacker:install```
-- *** It will ask to overwrite a file. Enter ```n``` ***
+- ***It will ask to overwrite a file. Enter ```n```***
 - Then ```rails db:migrate``` to populate the tables
 - Finally, ```rails server``` which can be accessed through the link displayed
+
+ ### Teacher
+- If teacher wants to ***add a student to class*** , first click Class Roster,  then Add Students
+- If teacher wants to ***change the grade of a student***, first click Class Roster, then click the Grade link for that student.
+- If teacher wants to ***see the evaluations***, first click the Manage Teams, then in Action, click View Members/Evaluations, then go to corresponding project, and choose a student from the drop down options.
+- If teacher wants to ***add a team***,  first click Manage Teams, then click Create Teams
+- If teacher wants to ***assign a student to a team***, first go Manage Teams, then click Edit in the Action column, then go Add Students To Team
+- If teacher wants to ***create a project***, first go Manage Teams, then click Edit in the Action column, then go Assign Project To Team
+
+ ### Student
+- If Student wants to ***make a evaluation***, first go Make Evaluation, then choose the team, then chopse the project
 
 ### Testing
 - To run the testing done for the program type ```rails test``` in the terminal
