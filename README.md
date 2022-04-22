@@ -27,7 +27,9 @@ At the start most of our backend models were created together since the team wan
 
 To Run PeerEval:
 - Go into the PeerEval directory with ```cd peerEval```
-- Then type ```bundle install```
+- - Type ```bundle install```
+- ***IMPORTANT*** First type ```rails webpacker:install```
+- *** It will ask to overwrite a file. Enter ```n``` ***
 - Then ```rails db:migrate``` to populate the tables
 - Finally, ```rails server``` which can be accessed through the link displayed
 
