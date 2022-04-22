@@ -5,4 +5,9 @@ class TeacherSessionsControllerTest < ActionDispatch::IntegrationTest
     get teacherlogin_path
     assert_response :success
   end
+
+  # test "teacher log out" do
+  #   delete teacherlogout_path
+  #   assert_response :success
+  # end
 end
