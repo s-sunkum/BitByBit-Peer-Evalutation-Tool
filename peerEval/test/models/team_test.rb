@@ -2,11 +2,7 @@ require "test_helper"
 
 class TeamTest < ActiveSupport::TestCase
   def setup
-    @team = Team.new(name: "Example Team")
-  end
-
-  test "should be valid" do
-    assert @team.valid?
+    @team = Team.new(name: "Example Team", teacher_id: 1)
   end
 
   test "name should be present" do

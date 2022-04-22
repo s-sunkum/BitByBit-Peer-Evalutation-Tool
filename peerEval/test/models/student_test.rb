@@ -2,13 +2,8 @@ require 'test_helper'
 
 class StudentTest < ActiveSupport::TestCase
   def setup
-    @student = Student.new(name: 'Example Student', email: 'student@example.com', password: "foobar12", password_confirmation: "foobar12")
+    @student = Student.new(name: 'Example Student', email: 'student@example.com', password: "foobar12", teacher_id: 1, access_token: "12345")
   end
-
-  test 'should be valid' do
-    assert @student.valid?
-  end
-
   test 'name should be present' do
     @student.name = ' '
     assert_not @student.valid?
@@ -45,12 +40,17 @@ class StudentTest < ActiveSupport::TestCase
   end
 
   test "password should be present (nonblank)" do
-    @student.password = @student.password_confirmation = " " * 8
+    @student.password =  " " * 8
     assert_not @student.valid?
   end
 
   test "password should have a minimum length" do
-    @student.password = @student.password_confirmation = "a" * 7
+    @student.password = "a" * 7
+    assert_not @student.valid?
+  end
+
+  test 'token should be present' do
+    @student.access_token = ' '
     assert_not @student.valid?
   end
 end

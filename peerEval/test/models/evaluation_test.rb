@@ -2,16 +2,12 @@ require "test_helper"
 
 class EvaluationTest < ActiveSupport::TestCase
   def setup
-    @evaluation = Evaluation.new(score: 5, comments: "Good job!")
+    @evaluation = Evaluation.new(score: 5, comments: "Good job!", evaluator_id: 1, evaluatee_id: 1, project_id: 1)
   end
 
-  test "should be valid" do
-    assert @evaluation.valid?
-  end
-
-  test "score is in range" do
-    @evaluation.score = 4
-    assert @evaluation.valid?
+  test "score is a number" do
+    @evaluation.score = "hello"
+    assert_not @evaluation.valid?
   end
 
   test "score should be less than upper bound" do

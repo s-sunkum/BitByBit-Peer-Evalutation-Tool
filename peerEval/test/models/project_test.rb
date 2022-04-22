@@ -2,11 +2,7 @@ require "test_helper"
 
 class ProjectTest < ActiveSupport::TestCase
   def setup
-    @project = Project.new(name: "Example Project")
-  end
-
-  test "should be valid" do
-    assert @project.valid?
+    @project = Project.new(name: "Example Project",team_id: 1)
   end
 
   test "name should be present" do
