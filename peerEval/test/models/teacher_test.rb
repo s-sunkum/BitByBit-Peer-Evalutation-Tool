@@ -2,8 +2,7 @@ require "test_helper"
 
 class TeacherTest < ActiveSupport::TestCase
   def setup
-    @teacher = Teacher.new(name: "Example User", email: "user@example.com",
-      password: "foobar123", password_confirmation: "foobar123")
+    @teacher = Teacher.new(name: "Sample Teacher", email: "teacher@example.com", password: "foobar123")
   end
   test "should be valid" do
     assert @teacher.valid?
@@ -47,11 +46,11 @@ class TeacherTest < ActiveSupport::TestCase
     assert_equal mixed_case_email.downcase, @teacher.reload.email
   end
   test "password should be present (nonblank)" do
-    @teacher.password = @teacher.password_confirmation = " " * 8
+    @teacher.password = " " * 8
     assert_not @teacher.valid?
   end
     test "password should have a minimum length" do
-    @teacher.password = @teacher.password_confirmation = "a" * 7
+    @teacher.password = "a" * 7
     assert_not @teacher.valid?
   end
 end

@@ -72,7 +72,8 @@ class StudentsController < ApplicationController
            render 'update_password'
         end
       else
-        render 'index'
+        flash[:danger] = "Incorrect Entries!"
+        redirect_to studentsignup_path
       end
     end
   end
