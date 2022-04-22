@@ -1,3 +1,4 @@
+<%# For students to make peer evaluations %>
 <% @students.each do |s| %>
     <%= link_to s.name, new_evaluation_path(:evaluateeID => s.id, :projectID => @project.id) %>
 <% end %>

@@ -1,3 +1,4 @@
+# Helper for managing student login sessions
 module StudentSessionsHelper
       # Logs in the given student.
   def student_log_in(student)

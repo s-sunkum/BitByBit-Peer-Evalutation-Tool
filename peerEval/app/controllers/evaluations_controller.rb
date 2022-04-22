@@ -1,4 +1,7 @@
+#Controller to manage seeing and making evaluations
 class EvaluationsController < ApplicationController
+
+  #Information needed for the new eval. page
   def new
     @eval = Evaluation.new
     session[:passed_variable] = params[:projectID]
@@ -6,6 +9,7 @@ class EvaluationsController < ApplicationController
     @teammates = @project.team.students
   end
 
+  # Creating an evaluation for a specific teammate and project
   def create
     @proj = session[:passed_variable]
     @all = Project.find(@proj).evaluations
@@ -24,10 +28,7 @@ class EvaluationsController < ApplicationController
       redirect_to new_evaluation_path(:projectID=> @proj)
   end
 
-  def show
-    @evals = Evaluation.all.select{ |e| e.evaluatee_id == params[:evaluatee_id]}
-  end
-
+  # View evaluations when a teacher is logged in
   def index
     if teacher_logged_in?
 

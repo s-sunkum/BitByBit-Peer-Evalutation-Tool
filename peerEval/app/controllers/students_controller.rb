@@ -1,16 +1,22 @@
+# Controller to manage the student model and its attributes
 class StudentsController < ApplicationController
+
+  # New form for student
   def new
     @student = Student.new
   end
 
+  # Index of all students
   def index
     @student = Student.all
   end
 
+  #For updating student password
   def update_password
     @student = Student.new
   end
 
+  # Handle the deletion of a student
   def destroy
     @student = Student.find(params[:id])
     if @student.destroy
@@ -19,14 +25,17 @@ class StudentsController < ApplicationController
     end
   end
   
+  #Student Dashboard
   def show 
     @student = Student.find(params[:id])
   end
 
+  #Student's grade form
   def grade
     @student = Student.find(params[:id])
   end
 
+  #For updating the student's grade
   def update
     @student = Student.find(params[:id])
     @student.update_attribute(:grade, params[:student][:grade])
@@ -36,6 +45,8 @@ class StudentsController < ApplicationController
     end
   end
 
+
+  # For creating student accounts
   def create
     if teacher_logged_in?
       @student = Student.new(student_params)
@@ -66,6 +77,7 @@ class StudentsController < ApplicationController
     end
   end
 
+  # For showing evaluations made by student
   def showEvaluations
     @submitted = false
     if(params[:team_id] != nil)
@@ -76,6 +88,7 @@ class StudentsController < ApplicationController
 
   end
 
+  #For showing evaluations made to student
   def personalEvaluations
     @submitted = false
     if(params[:team_id] != nil)

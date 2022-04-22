@@ -1,7 +1,11 @@
+# Controller for managing Teacher login sessions
 class TeacherSessionsController < ApplicationController
+
+  
   def new
   end
 
+  # Creating a teacher login session
   def create
     teacher = Teacher.find_by(email: params[:session][:email].downcase)
     if teacher && teacher.password == params[:session][:password]
@@ -15,6 +19,7 @@ class TeacherSessionsController < ApplicationController
     end
   end
 
+  # Destroying a teacher login session
   def destroy
     teacher_log_out
     redirect_to root_url

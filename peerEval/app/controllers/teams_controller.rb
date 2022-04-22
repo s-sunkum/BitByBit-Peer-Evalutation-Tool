@@ -1,8 +1,12 @@
+# Controller for managing teams
 class TeamsController < ApplicationController
+
+  # New team form
   def new
     @team = Team.new
   end
 
+  # Creating the team
   def create
     @team = Team.new(team_params)
     @team.teacher_id = current_teacher.id
@@ -15,10 +19,12 @@ class TeamsController < ApplicationController
 
   end
 
+  # Team edit options
   def edit
   
   end
   
+  # Deleting a team
   def destroy
     @team = Team.find(params[:id])
     if @team.destroy
@@ -27,6 +33,7 @@ class TeamsController < ApplicationController
     end
   end
 
+  # Displaying team index
   def index
     if(!teacher_logged_in?)
       @teams = current_student.teams

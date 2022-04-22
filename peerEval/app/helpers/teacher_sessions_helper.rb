@@ -1,3 +1,4 @@
+# Helper for managing teacher login sessions
 module TeacherSessionsHelper
   # Logs in the given teacher.
   def teacher_log_in(teacher)

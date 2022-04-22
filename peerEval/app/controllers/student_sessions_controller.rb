@@ -1,9 +1,12 @@
+# Controller to manage student login sessions
 class StudentSessionsController < ApplicationController
+
+  # For student signup
   def new
     
   end
 
-
+  # Login student by creating a session
   def create
     student = Student.find_by(email: params[:session][:email].downcase)
     if student && student.password == params[:session][:password]
@@ -17,6 +20,7 @@ class StudentSessionsController < ApplicationController
     end
   end
 
+  #Logout student by destroying the session
   def destroy 
     student_log_out
     redirect_to root_url

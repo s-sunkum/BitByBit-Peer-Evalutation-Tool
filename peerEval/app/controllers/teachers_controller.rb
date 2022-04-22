@@ -1,12 +1,17 @@
+ #Controller for managing teacher and his dashboard
  class TeachersController < ApplicationController
+
+  #Signup form for teacher
   def new
     @teacher = Teacher.new
   end
 
+  # Teacher's Dashboard
   def show
     @teacher = Teacher.find(params[:id])
   end
 
+  # Signing up a teacher
   def create
     @teacher = Teacher.new(teacher_params)
     if @teacher.save

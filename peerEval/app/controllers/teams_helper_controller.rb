@@ -1,4 +1,7 @@
+# Helper controller for teams
 class TeamsHelperController < ApplicationController
+
+    # Form for adding students to team
     def index
         @current = []
         @tobeAdded = []
@@ -12,6 +15,7 @@ class TeamsHelperController < ApplicationController
         end
     end
 
+    # Adding a student to a team
     def create
         @student = Student.find_by(id: params[:student_id])
         @team = Team.find_by(id: params[:team_id])
