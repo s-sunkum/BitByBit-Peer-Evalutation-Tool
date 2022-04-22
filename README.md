@@ -23,7 +23,7 @@ At the start most of our backend models were created together since the team wan
 - Yusen: 
   - Worked on the controller code for authenticating student and teacher logins, delete functionality for teachers, and tracking sessions and styling
 - Thomas: 
-  - Worked on the testing section and styling
+  - Worked on the testing section and styling and assisted with controller code
 ### Running The Application
 To Run PeerEval:
 - Go into the PeerEval directory with ```cd peerEval```
