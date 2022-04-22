@@ -24,6 +24,7 @@ At the start most of our backend models were created together since the team wan
   - Worked on the controller code for authenticating student and teacher logins, delete functionality for teachers, and tracking sessions and styling
 - Thomas: 
   - Worked on the testing section and styling, assisted with teachers and students controller code
+
 To Run PeerEval:
 - Go into the PeerEval directory with ```cd peerEval```
 - Then type ```bundle install```
